@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>推币机 · 资料索引与知识库</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;}
+
+        body{
+            background:#f7fbfc;
+            color:#1d2d35;
+            line-height:1.6;
+            padding:2rem 1rem 3rem;
+            min-height:100vh;
+        }
+
+        .page-wrap{
+            max-width:1100px;
+            margin:0 auto;
+        }
+
+        /* header */
+        .site-header{
+            margin-bottom:2.5rem;
+            border-bottom:2px solid #b0d9d5;
+            padding-bottom:1.2rem;
+        }
+        .site-header h1{
+            font-size:2.1rem;
+            font-weight:500;
+            letter-spacing:-0.02em;
+            color:#0b3b42;
+        }
+        .site-header .sub{
+            font-size:0.95rem;
+            color:#3a6a70;
+            margin-top:0.25rem;
+            display:block;
+            font-weight:350;
+        }
+
+        /* 网格卡片系统 */
+        .grid-cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+            gap:1.6rem;
+            margin:2rem 0 2.5rem;
+        }
+
+        .card{
+            background:white;
+            border-radius:18px;
+            padding:1.8rem 1.5rem;
+            box-shadow:0 4px 14px rgba(30,85,85,0.06);
+            border:1px solid #d8eceb;
+            transition:box-shadow 0.2s, border-color 0.2s;
+        }
+        .card:hover{
+            border-color:#7fc1bc;
+            box-shadow:0 8px 20px rgba(30,90,85,0.08);
+        }
+        .card h3{
+            font-size:1.25rem;
+            font-weight:500;
+            color:#0b4a4a;
+            margin-bottom:0.7rem;
+            display:flex;
+            align-items:center;
+            gap:0.4rem;
+        }
+        .card h3 i{
+            display:inline-block;
+            width:6px;height:6px;
+            background:#3f9e97;
+            border-radius:10px;
+            margin-right:0.2rem;
+        }
+        .card p, .card li{
+            font-size:0.95rem;
+            color:#1f3e44;
+            line-height:1.6;
+        }
+        .card ul, .card ol{
+            padding-left:1.2rem;
+            margin:0.4rem 0;
+        }
+        .card li{
+            margin-bottom:0.3rem;
+        }
+
+        .accent-label{
+            display:inline-block;
+            background:#def3f0;
+            padding:0.1rem 0.8rem;
+            border-radius:40px;
+            font-size:0.75rem;
+            font-weight:500;
+            color:#0d6a64;
+            letter-spacing:0.02em;
+            margin-bottom:0.6rem;
+        }
+
+        /* 说明区 / 提示块 */
+        .info-block{
+            background:#e5f4f2;
+            border-radius:28px;
+            padding:1.8rem 2rem;
+            margin:2.2rem 0;
+            border-left:5px solid #338f89;
+        }
+        .info-block p{
+            font-size:1rem;
+        }
+        .info-block strong{
+            color:#084a47;
+        }
+
+        /* 知识库入口 / 相关区 */
+        .related-section{
+            background:white;
+            border-radius:24px;
+            padding:2rem 2rem 2.2rem;
+            margin:2.5rem 0 1.8rem;
+            border:1px solid #c5e0dc;
+            box-shadow:0 3px 10px rgba(40,100,95,0.04);
+        }
+        .related-section h2{
+            font-size:1.5rem;
+            font-weight:450;
+            color:#094943;
+            margin-bottom:1.4rem;
+            letter-spacing:-0.01em;
+        }
+        .related-items{
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.8rem 1.5rem;
+            list-style:none;
+        }
+        .related-items li{
+            background:#eff8f6;
+            padding:0.4rem 1rem 0.4rem 1.2rem;
+            border-radius:60px;
+            font-size:0.9rem;
+            color:#154e4b;
+            border:1px solid #cee6e2;
+            display:inline-flex;
+            align-items:center;
+            gap:0.4rem;
+        }
+        .related-items li::before{
+            content:"▹";
+            color:#2f8f86;
+            font-size:1rem;
+        }
+
+        /* FAQ摘要区 简洁 */
+        .faq-preview{
+            margin:2.2rem 0 1.2rem;
+        }
+        .faq-item{
+            border-bottom:1px solid #d2e9e5;
+            padding:0.9rem 0;
+        }
+        .faq-item:last-child{border-bottom:none;}
+        .faq-q{
+            font-weight:460;
+            color:#054f4b;
+            margin-bottom:0.2rem;
+            display:flex;
+            gap:0.6rem;
+            align-items:baseline;
+        }
+        .faq-q span{
+            color:#2f9b92;
+            font-weight:500;
+        }
+        .faq-a{
+            color:#2a4e4b;
+            font-size:0.92rem;
+            margin-left:1.4rem;
+        }
+
+        /* hero 极简 */
+        .hero-note{
+            margin:0.8rem 0 1.8rem;
+            padding:1.4rem 0 0.6rem;
+        }
+        .hero-note p{
+            font-size:1.08rem;
+            color:#1b4547;
+        }
+
+        /* 按钮 / 引用 可忽略，只保留样式 */
+        .inline-link{
+            color:#12736b;
+            text-decoration:none;
+            font-weight:450;
+            border-bottom:1px solid #b3d5d0;
+            transition:border-color 0.15s, color 0.15s;
+        }
+        .inline-link:hover{
+            border-bottom-color:#056a62;
+            color:#043f3b;
+        }
+
+        /* 移动端 */
+        @media(max-width:560px){
+            body{padding:1.2rem 0.9rem;}
+            .site-header h1{font-size:1.7rem;}
+            .grid-cards{grid-template-columns:1fr;gap:1.2rem;}
+            .card{padding:1.5rem 1.2rem;}
+            .info-block{padding:1.4rem 1.2rem;}
+            .related-section{padding:1.5rem 1.2rem;}
+            .related-items{flex-direction:column;gap:0.5rem;}
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <header class="site-header">
+        <h1>推币机 · 信息索引</h1>
+        <span class="sub">一份围绕推币机的中文资料库结构 · 由条目与卡片构成</span>
+    </header>
+
+    <!-- 简短叙述 -->
+    <div class="hero-note">
+        <p>翻找零散笔记时，常会碰见几条关于<strong>推币机</strong>的记载：有人关心硬币堆叠的物理逻辑，有人收集历代机台面板设计，也有人在整理故障排除手册。这些内容如果只散落在收藏夹或聊天记录里，检索就会变得麻烦。这个页面尝试把推币机相关的参考资料、常见术语和场景整理成索引式卡片，方便快速定位。</p>
+    </div>
+
+    <!-- 网格卡片区：知识库目录 -->
+    <div class="grid-cards">
+        <div class="card">
+            <div class="accent-label">档案</div>
+            <h3><i></i>机型·历史</h3>
+            <p>记录从早期机械拨杆式到现代电子感应型的主要推币机型号，附带年代、推杆行程、硬币轨道差异等参数。部分条目附有拆解图链接。</p>
+            <ul>
+                <li>1980年代 Taito 原型机</li>
+                <li>双推盘与多层推板结构</li>
+                <li>复古机台接口对照</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="accent-label">原理</div>
+            <h3><i></i>运动·堆叠</h3>
+            <p>硬币与推板的摩擦系数、推板循环频率、挡板倾角对硬币堆叠形态的影响。可查阅实验性数据以及常见堆叠失败场景分析。</p>
+            <ul>
+                <li>硬币滑移角与临界层数</li>
+                <li>推板节奏与落币概率</li>
+                <li>润滑/静电干扰笔记</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="accent-label">维护</div>
+            <h3><i></i>调整·检修</h3>
+            <p>日常清洁、传感器校准、推杆复位弹簧更换、硬币通道异物取出等操作流程。部分内容来自技术手册与资深玩家笔记。</p>
+            <ul>
+                <li>常见错误码速查</li>
+                <li>推板水平调节步骤</li>
+                <li>投币器灵敏度设置</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="accent-label">文化</div>
+            <h3><i></i>设计·周边</h3>
+            <p>推币机主题的艺术设定、机台贴纸、代币设计演变，以及部分线下场馆的机台布局照片归档。也包含一些术语对照表。</p>
+            <ul>
+                <li>代币图案与材质</li>
+                <li>推币机在电影中的出现</li>
+                <li>街机厅布局草图</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区 + 自然链接 -->
+    <div class="info-block">
+        <p><strong>关于这份索引</strong> · 卡片里的条目大多带有短注或超链接，指向 <a href="https://cn-coinpusher.com" class="inline-link">推币机</a> 的详细说明页与图解。资料还在缓慢增补中，如果你有整理好的推币机笔记或参考链接，也欢迎通过站点留言功能提交。目前索引偏重物理结构与维护侧面，后续会尽量补全电子控制与版本差异的内容。</p>
+    </div>
+
+    <!-- 提示区：信息获取习惯 -->
+    <div style="margin:1.8rem 0 2rem;">
+        <p style="background:#f0f8f6;border-radius:40px;padding:0.7rem 1.5rem;display:inline-block;border:1px solid #bdd9d5;font-size:0.9rem;">⏺ 根据机台铭牌或 PCB 版本号，可以快速定位到对应索引卡片。</p>
+    </div>
+
+    <!-- 相关信息区 -->
+    <section class="related-section">
+        <h2>相关资料分类</h2>
+        <ul class="related-items">
+            <li>推币机术语汇编</li>
+            <li>各版本固件更新记录</li>
+            <li>硬币回收与分拣机制</li>
+            <li>场馆布局与机台间距参考</li>
+            <li>推币机专利文档摘要</li>
+            <li>玩家常见问答集</li>
+        </ul>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:#2b625e;">这些分类也会持续收录外部站点资料，部分摘要直接链接到 <a href="https://cn-coinpusher.com" class="inline-link">推币机</a> 的对应章节。</p>
+    </section>
+
+    <!-- FAQ 摘要区（克制、叙述感） -->
+    <div class="faq-preview">
+        <div class="faq-item">
+            <div class="faq-q"><span>Q</span> 为什么推币机推板有时会卡顿？</div>
+            <div class="faq-a">多数情况与轨道异物或推杆润滑不足有关。索引卡「调整·检修」中列出了清除步骤和推荐润滑剂类型。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q"><span>Q</span> 哪里可以找到不同代币的尺寸标准？</div>
+            <div class="faq-a">在「设计·周边」卡片内有一份代币厚度与直径对照表，包含若干品牌机台的适配参数。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q"><span>Q</span> 推币机索引库会更新吗？</div>
+            <div class="faq-a">会慢慢补充，主要以机台拆解笔记和玩家投稿为主。更新记录放在相关分类第一条。</div>
+        </div>
+    </div>
+
+    <!-- 极简footer -->
+    <div style="margin-top:3rem;border-top:1px solid #cde3e0;padding-top:1.2rem;font-size:0.8rem;color:#497a75;display:flex;flex-wrap:wrap;justify-content:space-between;">
+        <span>资料索引 · 持续收集中</span>
+        <span>内容基于公开资料与用户贡献·非官方页面</span>
+    </div>
+</div>
+</body>
+</html>
